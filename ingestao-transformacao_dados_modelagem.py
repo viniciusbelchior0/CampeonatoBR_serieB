@@ -15,7 +15,7 @@ def obter_dados(ano):
 
 
 def obter_df_modelagem(df,janela):
-    df = df[['round','team','tournament','opponent','result','venue','points','possession','gdiff','shots','p_shotsontarget','goals_shots','penalty_goals','p_penaltyconverted','shotsontarget_against','p_saves','cleansheets','penalty_attempted_against','p_penalty_saved','yellow_cards','red_cards','fouls_commited','fouls_draw','offsides','crosses','interceptions','tackles_won','own_goals']]
+    df = df[['round','team','tournament','opponent','result','venue','points','gf','ga','possession','gdiff','shots','p_shotsontarget','goals_shots','penalty_goals','p_penaltyconverted','shotsontarget_against','p_saves','cleansheets','penalty_attempted_against','p_penalty_saved','yellow_cards','red_cards','fouls_commited','fouls_draw','offsides','crosses','interceptions','tackles_won','own_goals']]
     df['cardscore'] = df['yellow_cards'] + df['red_cards']*5
     df['foulsdiff'] = df['fouls_draw'] - df['fouls_commited']
     df['tournament'] = df['tournament'].str[-4:]
@@ -33,7 +33,7 @@ def obter_df_modelagem(df,janela):
 
     #Obtendo valores agregados em séries temporais
     rolling_stats = (df.groupby(['team','tournament'])
-                                            .apply(lambda x: x.rolling(window=janela).agg({'points':'sum','possession':'mean','gdiff':'sum','shots':'mean','p_shotsontarget':'mean','goals_shots':'mean','penalty_goals':'sum','p_penaltyconverted':'mean','shotsontarget_against':'mean','p_saves':'mean','cleansheets':'sum','penalty_attempted_against':'sum','p_penalty_saved':'mean','cardscore':'mean','foulsdiff':'mean','offsides':'mean','crosses':'mean','interceptions':'mean','tackles_won':'mean','own_goals':'sum'}).shift())).reset_index()
+                                            .apply(lambda x: x.rolling(window=janela).agg({'points':'sum','gf':'mean','ga':'mean','possession':'mean','gdiff':'sum','shots':'mean','p_shotsontarget':'mean','goals_shots':'mean','penalty_goals':'sum','p_penaltyconverted':'mean','shotsontarget_against':'mean','p_saves':'mean','cleansheets':'sum','penalty_attempted_against':'sum','p_penalty_saved':'mean','cardscore':'mean','foulsdiff':'mean','offsides':'mean','crosses':'mean','interceptions':'mean','tackles_won':'mean','own_goals':'sum'}).shift())).reset_index()
 
     rolling_stats = rolling_stats.drop(['team','tournament'], axis = 1)
 
@@ -42,7 +42,7 @@ def obter_df_modelagem(df,janela):
 
     df_modelagem2 = df_modelagem.drop(columns=['level_2','team','tournament','round','venue','result','idopponentgame'], axis=1)
 
-    df_modelagem2 = df_modelagem2.rename(columns={'idteamgame':'idopponentgame','points':'opp_points','possession':'opp_possession','gdiff':'opp_gdiff','shots':'opp_shots',\
+    df_modelagem2 = df_modelagem2.rename(columns={'idteamgame':'idopponentgame','points':'opp_points','gf':'opp_gf','ga':'opp_ga','possession':'opp_possession','gdiff':'opp_gdiff','shots':'opp_shots',\
                                         'p_shotsontarget':'opp_p_shotsontarget','goals_shots':'opp_goals_shots','penalty_goals':'opp_penalty_goals',\
                                         'p_penaltyconverted':'opp_p_penaltyconverted','shotsontarget_against':'opp_shotsontarget_against',\
                                         'p_saves':'opp_p_saves','cleansheets':'opp_cleansheets','penalty_attempted_against':'opp_penalty_attempted_against',\
@@ -54,11 +54,11 @@ def obter_df_modelagem(df,janela):
     df_modelagem = df_modelagem.dropna()
     df_modelagem = df_modelagem[df_modelagem['possession']>0]
 
-    df_modelagem = df_modelagem[['idteamgame','idopponentgame','tournament','venue','result','points','possession','gdiff','shots',\
+    df_modelagem = df_modelagem[['idteamgame','idopponentgame','tournament','venue','result','points','gf','ga','possession','gdiff','shots',\
                                     'p_shotsontarget','goals_shots','penalty_goals','p_penaltyconverted','shotsontarget_against',\
                                                                 'p_saves','cleansheets','penalty_attempted_against','p_penalty_saved','cardscore',\
                                                                 'foulsdiff','offsides','crosses','interceptions','tackles_won','own_goals',\
-                                                                'opp_points','opp_possession','opp_gdiff','opp_shots','opp_p_shotsontarget',\
+                                                                'opp_points','opp_gf','opp_ga','opp_possession','opp_gdiff','opp_shots','opp_p_shotsontarget',\
                                                                 'opp_goals_shots','opp_penalty_goals','opp_p_penaltyconverted','opp_shotsontarget_against',\
                                                                 'opp_p_saves','opp_cleansheets','opp_penalty_attempted_against','opp_p_penalty_saved','opp_cardscore',\
                                                                 'opp_foulsdiff','opp_offsides','opp_crosses','opp_interceptions','opp_tackles_won','opp_own_goals']]
