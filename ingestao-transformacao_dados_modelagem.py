@@ -8,10 +8,10 @@ def conectar_banco():
 
 def obter_dados(ano):
   #Obtendo as partidas
-  query = f"""SELECT * FROM campeonatobr_serieb WHERE EXTRACT(YEAR from date) = '{ano}' """
-  all_matches = pd.read_sql_query(query,engine)
-  all_matches['idteamgame'] = all_matches['team'] + "_" + all_matches['round'].astype(str) + '.0' + '_' + all_matches['tournament'].str[-4:]
-  return all_matches
+    query = f"""SELECT * FROM campeonatobr_serieb WHERE EXTRACT(YEAR from date) = '{ano}' """
+    all_matches = pd.read_sql_query(query,engine)
+    all_matches['idteamgame'] = all_matches['team'] + "_" + all_matches['round'].astype(str) + '.0' + '_' + all_matches['tournament'].str[-4:]
+    return all_matches
 
 
 def obter_df_modelagem(df,janela):
