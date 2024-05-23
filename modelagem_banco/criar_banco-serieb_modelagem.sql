@@ -50,6 +50,6 @@ CREATE TABLE campeonatobr_serieb_modelagem(
     opp_interceptions numeric,
     opp_tackles_won numeric,
     opp_own_goals numeric,
-    PRIMARY KEY idteamgame
+    PRIMARY KEY (idteamgame)
 )
 ;
