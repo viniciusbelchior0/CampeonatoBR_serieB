@@ -5,7 +5,7 @@
 
 O próposito do projeto é a construção de um pipeline completo de uma aplicação de dados. Começando pela coleta dos resultados das partidas através de webscraping, esses dados serão armazenados em um banco de dados, que os servirá a um relatório interativo e a uma aplicação com o objetivo de prever o resultado de uma partida com base nos resultados recentes das equipes.
 
-*Obs: a aplicação pode ser encontrada em outro [repositório](https://github.com/viniciusbelchior0/ML_CampeonatoBrasileiro)
+**Obs**: a aplicação pode ser encontrada em outro [repositório](https://github.com/viniciusbelchior0/ML_CampeonatoBrasileiro).
 
 # Descrição das etapas
 ## 1. Obtenção dos dados
