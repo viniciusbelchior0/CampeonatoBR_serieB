@@ -4,7 +4,7 @@
 
 ![pipeline](https://github.com/viniciusbelchior0/CampeonatoBR_serieB/blob/main/references/diagrama_br-serieb.drawio.png)
 
-O próposito do projeto é construir um pipeline completo de uma aplicação de análise de dados sobre a segunda divisão do campeonato brasileiro. Começando pela construção de um pipeline de dados que obterá os resultados das partidas 
+O próposito do projeto é a construção de um pipeline completo de uma aplicação de dados. Começando pela coleta dos resultados das partidas através de webscraping, esses dados serão armazenados em um banco de dados, que os servirá a um relatório interativo e a uma aplicação com o objetivo de prever o resultado de uma partida com base nos resultados recentes das equipes.
 
 ## 1. Obtenção dos dados
 
