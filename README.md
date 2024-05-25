@@ -1,5 +1,3 @@
-# CampeonatoBR_serieB
-
 # Descrição do Projeto
 ## Fluxo do Projeto
 
