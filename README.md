@@ -1,11 +1,13 @@
 # CampeonatoBR_serieB
 
+# Descrição do Projeto
 ## Fluxo do Projeto
 
 ![pipeline](https://github.com/viniciusbelchior0/CampeonatoBR_serieB/blob/main/references/diagrama_br-serieb.drawio.png)
 
 O próposito do projeto é a construção de um pipeline completo de uma aplicação de dados. Começando pela coleta dos resultados das partidas através de webscraping, esses dados serão armazenados em um banco de dados, que os servirá a um relatório interativo e a uma aplicação com o objetivo de prever o resultado de uma partida com base nos resultados recentes das equipes.
 
+# Descrição das etapas
 ## 1. Obtenção dos dados
 
 A primeira fase se trata da obtenção dos dados. Eles são coletados através do site FBRef - que faz parte de uma família de endereços(sports reference) que contêm diversas estatísticas referentes às partidas das principais ligas esportivas do mundo. Esses dados estão dispostos em diferentes tabelas contendo informações a respeito de calendários, estatísticas ofensivas, estatísticas defensivas e outras medidas; eles também são granularizados por partida: cada linha se refere a uma partida. Além disso, deve-se reunir essas tabelas para um mesmo time e depois disso, coletar essas tabelas para todos os 20 times. Caso isso fosse feito manualmente, despenderia muito trabalho e tempo, podendo levar algumas horas para atualizações referentes a uma única rodada.
