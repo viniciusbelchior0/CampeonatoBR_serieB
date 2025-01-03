@@ -1,9 +1,8 @@
 # Descrição do Projeto
-## Fluxo do Projeto
-
-![pipeline](https://github.com/viniciusbelchior0/CampeonatoBR_serieB/blob/main/references/diagrama_br-serieb.png)
 
 O próposito do projeto é a construção de um pipeline completo de uma aplicação de dados. Começando pela coleta dos resultados das partidas através de webscraping, esses dados serão armazenados em um banco de dados, que os servirá a um relatório interativo e a uma aplicação com o objetivo de prever o resultado de uma partida com base nos resultados recentes das equipes.
+
+![pipeline](https://github.com/viniciusbelchior0/CampeonatoBR_serieB/blob/main/references/diagrama_br-serieb.png)
 
 **Obs**: a aplicação pode ser encontrada em outro [repositório](https://github.com/viniciusbelchior0/ML_CampeonatoBrasileiro).
 
